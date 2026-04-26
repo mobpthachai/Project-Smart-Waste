@@ -43,7 +43,7 @@ function RegisterPage() {
     try {
       // เช็กว่าอีเมลนี้มีคนใช้หรือยัง (Check Existing User) ---
       // โดยการยิงไปที่ API checkUser ที่เราดูไปก่อนหน้านี้
-      const resCheckUser = await fetch("http://localhost:3000/api/checkUser",{
+      const resCheckUser = await fetch("/api/checkUser",{
         method: "POST",
         headers: { "Content-Type":"application/json" },
         body: JSON.stringify({ email })
@@ -57,7 +57,7 @@ function RegisterPage() {
       }
       
       // ส่งข้อมูลไปบันทึกลง MongoDB (Actual Registration) ---
-      const res = await fetch("http://localhost:3000/api/register",{
+      const res = await fetch("api/register",{
         method: "POST",
         headers: { "Content-Type":"application/json" },
         body: JSON.stringify({ name, email, password })
